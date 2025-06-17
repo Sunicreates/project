@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 330 81% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 330 81% 60%;
+    --radius: 0.75rem;
+    
+    /* Fashion-focused color palette */
+    --pink-50: 327 73% 97%;
+    --pink-100: 326 78% 95%;
+    --pink-200: 326 85% 90%;
+    --pink-300: 327 87% 81%;
+    --pink-400: 329 86% 70%;
+    --pink-500: 330 81% 60%;
+    --pink-600: 333 71% 51%;
+    --pink-700: 335 78% 42%;
+    --pink-800: 336 74% 35%;
+    --pink-900: 336 69% 30%;
+    
+    --rose-50: 355 100% 97%;
+    --rose-100: 355 100% 95%;
+    --rose-200: 353 96% 90%;
+    --rose-300: 353 95% 81%;
+    --rose-400: 351 95% 71%;
+    --rose-500: 349 89% 60%;
+    --rose-600: 347 77% 50%;
+    --rose-700: 345 82% 41%;
+    --rose-800: 343 79% 35%;
+    --rose-900: 341 75% 30%;
+
+    --purple-50: 270 100% 98%;
+    --purple-100: 269 100% 95%;
+    --purple-200: 269 100% 92%;
+    --purple-300: 269 87% 85%;
+    --purple-400: 270 95% 75%;
+    --purple-500: 270 91% 65%;
+    --purple-600: 271 81% 56%;
+    --purple-700: 272 72% 47%;
+    --purple-800: 272 69% 38%;
+    --purple-900: 273 67% 32%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 330 81% 60%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 330 81% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Fashion-focused gradient backgrounds */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20;
+  }
+  
+  .gradient-bg-alt {
+    @apply bg-gradient-to-r from-pink-100 via-purple-50 to-rose-100 dark:from-gray-800 dark:via-purple-900/30 dark:to-pink-900/30;
+  }
+  
+  /* Glass morphism effects */
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border border-pink-200/30 dark:border-pink-800/30 shadow-2xl;
+  }
+  
+  /* Interactive hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer;
+  }
+  
+  .gentle-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.01];
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-200 font-semibold px-8 py-3 rounded-full border-2 border-pink-200 dark:border-pink-800 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-pink-300 dark:hover:border-pink-700;
+  }
+  
+  .btn-ghost {
+    @apply text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-900/20 px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-800/90 focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800 focus:border-pink-400 dark:focus:border-pink-600 transition-all duration-300 placeholder:text-gray-400;
+  }
+  
+  .input-elegant {
+    @apply w-full px-6 py-4 rounded-2xl border-2 border-pink-200 dark:border-pink-800 bg-gradient-to-r from-white to-pink-50 dark:from-gray-800 dark:to-pink-900/20 focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800 focus:border-pink-400 dark:focus:border-pink-600 transition-all duration-300 shadow-sm;
+  }
+  
+  /* Rating system */
+  .rating-button {
+    @apply w-12 h-12 rounded-full border-2 border-pink-300 dark:border-pink-600 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-500 hover:text-white hover:scale-110 hover:shadow-lg font-semibold text-sm;
+  }
+  
+  .rating-button-active {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white border-pink-500 shadow-lg scale-110;
+  }
+  
+  /* Navigation styles */
+  .nav-item {
+    @apply flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 group cursor-pointer;
+  }
+  
+  .nav-item-active {
+    @apply bg-gradient-to-r from-pink-500/20 to-rose-500/20 border border-pink-300/30 dark:border-pink-600/30 shadow-lg;
+  }
+  
+  .nav-item-inactive {
+    @apply hover:bg-white/50 dark:hover:bg-gray-700/50;
+  }
+  
+  /* Card styles */
+  .post-card {
+    @apply glass-card rounded-3xl overflow-hidden shadow-xl card-hover;
+  }
+  
+  .user-card {
+    @apply glass-effect rounded-2xl p-6 card-hover relative overflow-hidden;
+  }
+  
+  /* Tag styles */
+  .tag {
+    @apply px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm font-medium hover:bg-pink-200 dark:hover:bg-pink-900/50 transition-colors duration-200 cursor-pointer;
+  }
+  
+  .tag-trending {
+    @apply px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105;
+  }
+  
+  /* Avatar styles */
+  .avatar {
+    @apply rounded-full border-3 border-pink-300 dark:border-pink-600 shadow-lg;
+  }
+  
+  .avatar-online {
+    @apply relative;
+  }
+  
+  .avatar-online::after {
+    @apply absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white dark:border-gray-800;
+    content: '';
+  }
+  
+  /* Loading states */
+  .loading-shimmer {
+    @apply animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700;
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .loading-spinner {
+    @apply w-6 h-6 border-2 border-pink-200 border-t-pink-500 rounded-full animate-spin;
+  }
+  
+  /* Status indicators */
+  .status-online {
+    @apply w-3 h-3 bg-green-400 rounded-full border-2 border-white dark:border-gray-800;
+  }
+  
+  .status-badge {
+    @apply px-3 py-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white text-xs font-bold rounded-full shadow-lg;
+  }
+  
+  /* Responsive utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .grid-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-pink-300 to-rose-400 dark:from-pink-600 dark:to-rose-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-pink-400 to-rose-500 dark:from-pink-500 dark:to-rose-600;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(2deg); 
+  }
+}
+
+@keyframes shimmer {
+  0% { 
+    background-position: -200px 0; 
+  }
+  100% { 
+    background-position: calc(200px + 100%) 0; 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.6); 
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Focus styles for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-4 focus:ring-pink-200 dark:focus:ring-pink-800 focus:ring-opacity-50;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-effect {
+    @apply bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
